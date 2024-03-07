@@ -2,3 +2,9 @@
     text-align: center;
     color: red;
 }
+
+.resultado {
+    margin: 2px solid grey;
+    width: auto;
+    height: fit-content;
+}
