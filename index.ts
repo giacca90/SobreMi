@@ -3,19 +3,12 @@ let listaArchivos:pdfObj[];
 interface pdfObj {
     name:string,
     download_url:string,
-    self:string
 }
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val:pdfObj) => {
         console.log(val.name);
-        if(val.name.endsWith('.jpg')) {
-            const embedElement = document.createElement('img');
-            embedElement.src = val.download_url;
-            embedElement.width = 300;
-            embedElement.height = 180;
-            resultado.appendChild(embedElement);    
-        }
     });
+    busca('');
 })
 
 async function obtenerCertificados() {
@@ -23,6 +16,21 @@ async function obtenerCertificados() {
     listaArchivos = await response.json();
 }
 
-function buscar(valor:string) {
-    
+function busca(valor:string) {
+    resultado.innerHTML = "";
+    let result:pdfObj[] | null = null;
+    if(valor.length === 0) {
+        result = listaArchivos
+    }else{
+        result = listaArchivos.filter((val:pdfObj) => val.name.toLowerCase().includes(valor.toLowerCase()))
+    }
+    if(result) {
+        result.forEach((val:pdfObj) => {
+            const embedElement = document.createElement('img');
+            embedElement.src = val.download_url;
+            embedElement.width = 300;
+            embedElement.height = 180;
+            resultado.appendChild(embedElement);
+        })
+    }
 }

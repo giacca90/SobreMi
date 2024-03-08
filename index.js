@@ -13,14 +13,8 @@ let listaArchivos;
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val) => {
         console.log(val.name);
-        if (val.name.endsWith('.jpg')) {
-            const embedElement = document.createElement('img');
-            embedElement.src = val.download_url;
-            embedElement.width = 300;
-            embedElement.height = 180;
-            resultado.appendChild(embedElement);
-        }
     });
+    busca('');
 });
 function obtenerCertificados() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -28,5 +22,22 @@ function obtenerCertificados() {
         listaArchivos = yield response.json();
     });
 }
-function buscar(valor) {
+function busca(valor) {
+    resultado.innerHTML = "";
+    let result = null;
+    if (valor.length === 0) {
+        result = listaArchivos;
+    }
+    else {
+        result = listaArchivos.filter((val) => val.name.toLowerCase().includes(valor.toLowerCase()));
+    }
+    if (result) {
+        result.forEach((val) => {
+            const embedElement = document.createElement('img');
+            embedElement.src = val.download_url;
+            embedElement.width = 300;
+            embedElement.height = 180;
+            resultado.appendChild(embedElement);
+        });
+    }
 }
