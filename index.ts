@@ -8,14 +8,13 @@ interface pdfObj {
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val:pdfObj) => {
         console.log(val.name);
-        const embedElement = document.createElement('embed');
-        embedElement.src = val.download_url;
-        embedElement.type = 'application/pdf';
-        embedElement.width = '100px',
-        embedElement.height = '60px';
-
-        resultado.appendChild(embedElement);
-
+        if(val.name.endsWith('.jpg')) {
+            const embedElement = document.createElement('img');
+            embedElement.src = val.download_url;
+            embedElement.width = 300;
+            embedElement.height = 180;
+            resultado.appendChild(embedElement);    
+        }
     });
 })
 
