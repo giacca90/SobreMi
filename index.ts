@@ -4,6 +4,11 @@ interface pdfObj {
     name:string,
     download_url:string,
 }
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.classList.add('modo-oscuro');
+  }
+
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val:pdfObj) => {
         console.log(val.name);
@@ -30,7 +35,7 @@ function busca(valor:string) {
             embedElement.src = val.download_url;
             embedElement.width = 390;
             embedElement.height = 230;
-            embedElement.style.margin = '1px'
+            embedElement.style.margin = '2px'
             embedElement.addEventListener('click', () => {
                 window.open(val.download_url, '_blank');
             })

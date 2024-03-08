@@ -1,3 +1,21 @@
+:root {
+    --color-fondo-claro: #ffffff;
+    --color-texto-claro: black;
+    --color-fondo-oscuro: black;
+    --color-texto-oscuro: #ffffff;
+  }
+  
+  body {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-claro);
+    transition: background-color 0.3s, color 0.3s; /* Agregamos una transición suave */
+  }
+  
+  body.modo-oscuro {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-oscuro);
+  }
+
 .titulo {
     text-align: center;
     color: red;
@@ -5,8 +23,12 @@
 
 .resultado {
     /* border: 2px solid grey; */
-    width: 95%;
+    width: 98%;
     margin: 0 auto;
     height: 500px;
     overflow-y: auto;
+}
+
+#repo:visited{
+    color: blue;
 }
