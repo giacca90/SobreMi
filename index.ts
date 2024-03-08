@@ -5,7 +5,7 @@ obtenerCertificados().then(() => {
 })
 
 async function obtenerCertificados() {
-    const response = await fetch("./certificados/");
+    const response = await fetch("./certificados");
     listaArchivos = await response.json();
 }
 

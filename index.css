@@ -4,7 +4,8 @@
 }
 
 .resultado {
-    margin: 2px solid grey;
-    width: auto;
-    height: fit-content;
+    border: 2px solid grey;
+    width: 95%;
+    margin: 0 auto;
+    height: 500px;
 }
