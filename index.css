@@ -4,8 +4,9 @@
 }
 
 .resultado {
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
     width: 95%;
     margin: 0 auto;
     height: 500px;
+    overflow-y: auto;
 }

@@ -35,8 +35,12 @@ function busca(valor) {
         result.forEach((val) => {
             const embedElement = document.createElement('img');
             embedElement.src = val.download_url;
-            embedElement.width = 300;
-            embedElement.height = 180;
+            embedElement.width = 390;
+            embedElement.height = 230;
+            embedElement.style.margin = '1px';
+            embedElement.addEventListener('click', () => {
+                window.open(val.download_url, '_blank');
+            });
             resultado.appendChild(embedElement);
         });
     }
