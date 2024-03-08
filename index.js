@@ -10,8 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let resultado = document.getElementById("resultado");
 let listaArchivos;
+let cambiaEstilo = document.getElementById('estilo');
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.classList.add('modo-oscuro');
+    cambiaEstilo.textContent = 'Modo Claro';
 }
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val) => {
@@ -44,7 +46,30 @@ function busca(valor) {
             embedElement.addEventListener('click', () => {
                 window.open(val.download_url, '_blank');
             });
+            embedElement.addEventListener('mouseenter', handleMouseEnter);
+            embedElement.addEventListener('mouseleave', handleMouseLeave);
             resultado.appendChild(embedElement);
         });
     }
+}
+function CambiaEstilo() {
+    console.log('Estilo actual: ' + document.body.classList);
+    if (document.body.classList.toString() === 'modo-oscuro') {
+        document.body.classList.remove('modo-oscuro');
+        cambiaEstilo.textContent = 'Modo Oscuro';
+    }
+    else {
+        document.body.classList.add('modo-oscuro');
+        cambiaEstilo.textContent = 'Modo Claro';
+    }
+}
+function handleMouseEnter(event) {
+    const element = event.target;
+    element.style.transition = 'transform 0.5s';
+    element.style.transform = 'scale(0.9)';
+}
+function handleMouseLeave(event) {
+    const element = event.target;
+    element.style.transition = 'transform 0.5s';
+    element.style.transform = 'scale(1)';
 }
