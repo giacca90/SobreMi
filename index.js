@@ -15,7 +15,7 @@ obtenerCertificados().then(() => {
 });
 function obtenerCertificados() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("./certificados");
+        const response = yield fetch("./certificados/");
         listaArchivos = yield response.json();
     });
 }
