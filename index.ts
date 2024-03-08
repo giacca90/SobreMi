@@ -1,11 +1,26 @@
 let resultado:HTMLDivElement = document.getElementById("resultado") as HTMLDivElement
-let listaArchivos:string[];
+let listaArchivos:pdfObj[];
+interface pdfObj {
+    name:string,
+    download_url:string,
+    self:string
+}
 obtenerCertificados().then(() => {
-    listaArchivos.forEach((val:string) => console.log(val));
+    listaArchivos.forEach((val:pdfObj) => {
+        console.log(val.name);
+        const embedElement = document.createElement('embed');
+        embedElement.src = val.download_url;
+        embedElement.type = 'application/pdf';
+        embedElement.width = '100px',
+        embedElement.height = '60px';
+
+        resultado.appendChild(embedElement);
+
+    });
 })
 
 async function obtenerCertificados() {
-    const response = await fetch("./certificados");
+    const response = await fetch("https://api.github.com/repos/giacca90/SobreMi/contents/certificados");
     listaArchivos = await response.json();
 }
 

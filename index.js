@@ -11,11 +11,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 let resultado = document.getElementById("resultado");
 let listaArchivos;
 obtenerCertificados().then(() => {
-    listaArchivos.forEach((val) => console.log(val));
+    listaArchivos.forEach((val) => {
+        console.log(val.name);
+        const embedElement = document.createElement('embed');
+        embedElement.src = val.download_url;
+        embedElement.type = 'application/pdf';
+        embedElement.width = '100px',
+            embedElement.height = '60px';
+        resultado.appendChild(embedElement);
+    });
 });
 function obtenerCertificados() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("./certificados/");
+        const response = yield fetch("https://api.github.com/repos/giacca90/SobreMi/contents/certificados");
         listaArchivos = yield response.json();
     });
 }
