@@ -1,7 +1,7 @@
 let resultado:HTMLDivElement = document.getElementById("resultado") as HTMLDivElement
 let listaArchivos:pdfObj[];
 let cambiaEstilo:HTMLButtonElement = document.getElementById('estilo') as HTMLButtonElement;
-
+let car:boolean = true;
 
 interface pdfObj {
     name:string,
@@ -78,7 +78,6 @@ function handleMouseLeave(event:any) {
 
 function cambiaCuerpo(id:string) {
     console.log('id: '+id);
-
     document.querySelectorAll('.cabecera h3').forEach((item) => {
         if(item.id === id) {
             item.classList.add('selected');
@@ -98,4 +97,23 @@ function cambiaCuerpo(id:string) {
         });    
         (document.getElementById('cuerpo') as HTMLElement).classList.remove('hidden');
     }, 500);    
+}
+
+async function carousel() {
+    const cuerpos = document.querySelectorAll<HTMLElement>('.cuerpo div');
+    let id:number = 1;
+    setInterval(() => {
+        if(!car)
+         return;
+        if(id === cuerpos.length)
+            id = 0;
+        cambiaCuerpo(cuerpos[id].id.substring(0, cuerpos[id].id.indexOf('-')));
+        id++;
+    },5000)
+}
+
+carousel();
+
+function stop() {
+    car = false;
 }

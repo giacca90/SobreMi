@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var resultado = document.getElementById("resultado");
 var listaArchivos;
 var cambiaEstilo = document.getElementById('estilo');
+var car = true;
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.classList.add('modo-oscuro');
     cambiaEstilo.textContent = 'Modo Claro';
@@ -136,4 +137,26 @@ function cambiaCuerpo(id) {
         });
         document.getElementById('cuerpo').classList.remove('hidden');
     }, 500);
+}
+function carousel() {
+    return __awaiter(this, void 0, void 0, function () {
+        var cuerpos, id;
+        return __generator(this, function (_a) {
+            cuerpos = document.querySelectorAll('.cuerpo div');
+            id = 1;
+            setInterval(function () {
+                if (!car)
+                    return;
+                if (id === cuerpos.length)
+                    id = 0;
+                cambiaCuerpo(cuerpos[id].id.substring(0, cuerpos[id].id.indexOf('-')));
+                id++;
+            }, 5000);
+            return [2 /*return*/];
+        });
+    });
+}
+carousel();
+function stop() {
+    car = false;
 }
