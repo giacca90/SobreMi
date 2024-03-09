@@ -13,6 +13,9 @@ let listaArchivos;
 let cambiaEstilo = document.getElementById('estilo');
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.classList.add('modo-oscuro');
+    /* document.querySelectorAll('a').forEach((item) => {
+        item.classList.add('modo-oscuro');
+    }); */
     cambiaEstilo.textContent = 'Modo Claro';
 }
 obtenerCertificados().then(() => {
@@ -56,10 +59,16 @@ function CambiaEstilo() {
     console.log('Estilo actual: ' + document.body.classList);
     if (document.body.classList.toString() === 'modo-oscuro') {
         document.body.classList.remove('modo-oscuro');
+        /* document.querySelectorAll('a').forEach((item) => {
+            item.classList.remove('modo-oscuro');
+        }) */
         cambiaEstilo.textContent = 'Modo Oscuro';
     }
     else {
         document.body.classList.add('modo-oscuro');
+        /* document.querySelectorAll('a').forEach((item) => {
+            item.classList.add('modo-oscuro');
+        }) */
         cambiaEstilo.textContent = 'Modo Claro';
     }
 }

@@ -1,8 +1,11 @@
 :root {
     --color-fondo-claro: #ffffff;
     --color-texto-claro: black;
+    --color-link-claro: blue;
     --color-fondo-oscuro: black;
     --color-texto-oscuro: #ffffff;
+    --color-link-oscuro: #00c8ff;
+    --color-background-input: #c8c8c847;
   }
   
   body {
@@ -29,6 +32,29 @@
     overflow-y: auto;
 }
 
-#repo:visited{
-    color: blue;
+a {
+  font-weight: bold;
+  color: var(--color-link-claro);
+  margin-right: 5px;
+}
+
+a:visited {
+  color: var(--color-link-claro);
+}
+
+body.modo-oscuro a {
+  color: var(--color-link-oscuro);
+}
+
+body.modo-oscuro a:visited {
+  color: var(--color-link-oscuro);
+}
+
+body.modo-oscuro input[type="text"] {
+  background-color: var(--color-background-input);
+  color: white;
+}
+
+body.modo-oscuro input[type="text"]::placeholder {
+  color: #c0c0c0;
 }
