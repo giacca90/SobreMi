@@ -85,13 +85,17 @@ function cambiaCuerpo(id:string) {
         }else{
             item.classList.remove('selected');
         }
-    })
+    });
 
-    document.querySelectorAll<HTMLElement>('.cuerpo div').forEach((item:HTMLElement) => {
-        if(item.id === id+'-body') {
-            item.hidden = false;
-        }else{
-            item.hidden = true;
-        }
-    })
+    (document.getElementById('cuerpo') as HTMLElement).classList.add('hidden');
+    setTimeout(() => {
+        document.querySelectorAll<HTMLElement>('.cuerpo div').forEach((item:HTMLElement) => {
+            if(item.id === id+'-body') {
+                item.hidden = false;
+            }else{
+                item.hidden = true;
+            }
+        });    
+        (document.getElementById('cuerpo') as HTMLElement).classList.remove('hidden');
+    }, 500);    
 }

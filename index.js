@@ -124,12 +124,16 @@ function cambiaCuerpo(id) {
             item.classList.remove('selected');
         }
     });
-    document.querySelectorAll('.cuerpo div').forEach(function (item) {
-        if (item.id === id + '-body') {
-            item.hidden = false;
-        }
-        else {
-            item.hidden = true;
-        }
-    });
+    document.getElementById('cuerpo').classList.add('hidden');
+    setTimeout(function () {
+        document.querySelectorAll('.cuerpo div').forEach(function (item) {
+            if (item.id === id + '-body') {
+                item.hidden = false;
+            }
+            else {
+                item.hidden = true;
+            }
+        });
+        document.getElementById('cuerpo').classList.remove('hidden');
+    }, 500);
 }
