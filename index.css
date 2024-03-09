@@ -2,7 +2,7 @@
     --color-fondo-claro: #ffffff;
     --color-texto-claro: black;
     --color-link-claro: blue;
-    --color-fondo-oscuro: black;
+    --color-fondo-oscuro: rgba(0, 0, 0, 0.83);
     --color-texto-oscuro: #ffffff;
     --color-link-oscuro: #00c8ff;
     --color-background-input: #c8c8c847;
