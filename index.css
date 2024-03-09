@@ -32,6 +32,12 @@
     overflow-y: auto;
 }
 
+p {
+  font-size: 20px;
+}
+h3 {
+  font-size: 24px;
+}
 a {
   font-weight: bold;
   color: var(--color-link-claro);
@@ -57,4 +63,30 @@ body.modo-oscuro input[type="text"] {
 
 body.modo-oscuro input[type="text"]::placeholder {
   color: #c0c0c0;
+}
+
+.cabecera {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.cabecera h3 {
+  margin-right: 10px;
+}
+
+.cabecera h3:hover {
+  color:blue;
+}
+
+.selected {
+  color:blue;
+}
+
+body.modo-oscuro .selected {
+  color: var(--color-link-oscuro);
+}
+
+body.modo-oscuro .cabecera h3:hover{
+  color: var(--color-link-oscuro);
 }

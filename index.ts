@@ -13,6 +13,10 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     cambiaEstilo.textContent = 'Modo Claro';
   }
 
+/* document.addEventListener('DOMContentLoaded', () => {
+    
+});
+ */
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val:pdfObj) => {
         console.log(val.name);
@@ -70,4 +74,24 @@ function handleMouseLeave(event:any) {
     const element = event.target;
     element.style.transition = 'transform 0.5s';
     element.style.transform = 'scale(1)';
+}
+
+function cambiaCuerpo(id:string) {
+    console.log('id: '+id);
+
+    document.querySelectorAll('.cabecera h3').forEach((item) => {
+        if(item.id === id) {
+            item.classList.add('selected');
+        }else{
+            item.classList.remove('selected');
+        }
+    })
+
+    document.querySelectorAll<HTMLElement>('.cuerpo div').forEach((item:HTMLElement) => {
+        if(item.id === id+'-body') {
+            item.hidden = false;
+        }else{
+            item.hidden = true;
+        }
+    })
 }

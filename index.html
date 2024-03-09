@@ -12,19 +12,58 @@
         <h3 style="color: red;">ATENCIÓN, PAGINA EN CONSTUCCIÓN!!! </h3>
     </header>
     <div class="container">
-        <div class="cebecera"><h3>Quien soy</h3></div>
-        <div class="cuerpo"><p>Soy un Hombre apasionado desde pequeño por la electrónica y la informática. 
-            Siempre intenté acoplar mi pasión con los trabajos que he desarrollado lejos del sector.
-            He hecho de todo, mozo de almacén, electricista industrial, pescadero, repartidor...
-            Por mi punto de vista, muchas experiencias distintas, que poco tienen que ver con la informática, pero igualmente experiencia.
-            Ahora, después de invertir mucho de mi tiempo libre en capacitarme en la programación y desarrollo de aplicaciones, me siento (casi) preparado para sumergirme en el mundo laboral del desarrollo de software.
-        </p></div>
+        <div class="cabecera">
+            <h3 id="about" onclick="cambiaCuerpo(this.id)" class="selected">Quien soy</h3>
+            <h3 id="experience" onclick="cambiaCuerpo(this.id)">Mís Experiencias</h3>
+            <h3 id="projects" onclick="cambiaCuerpo(this.id)">Algunos proyectos</h3>
+            <h3 id="contact" onclick="cambiaCuerpo(this.id)">Contactame</h3>
+        </div>
+        <div class="cuerpo">
+            <div id="about-body">
+                <p>
+                    Soy un Hombre apasionado desde pequeño por la electrónica y la informática. <br>
+                    Siempre intenté acoplar mi pasión con los trabajos que he desarrollado lejos del sector. <br>
+                    He hecho de todo, mozo de almacén, electricista industrial, pescadero, repartidor... <br>
+                    Por mi punto de vista, muchas experiencias distintas, que poco tienen que ver con la informática, pero igualmente experiencia. <br>
+                    Ahora, después de invertir mucho de mi tiempo libre en capacitarme en la programación y desarrollo de aplicaciones, <br> me siento (casi) preparado para sumergirme en el mundo laboral del desarrollo de software.
+                </p>
+            </div>
+            <div id="experience-body" hidden>
+                <p>
+                    Mis experiencias en el sector del desarollo?? Ninguna! <br>
+                    Solo he hecho algunos pocos proyectos, quitando los que hice siguiendo a los cursos de <a href="https://www.coursera.org/" target="_blank">Coursera</a> y <a href="https://www.udemy.com/" target="_blank">Udemy</a>.<br>
+                    Todos los puedes ver en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a><br>
+                    Así que te hablaré sobre mis experiencias generales: <br>
+                    Trabaje de encargado de Almacen, de Electricista en Maquinarias Industriales Textiles, <br> como repartidor de leña con camión ligero, dependiente de tienda, barista, repartidor a domicilio... <br>
+                    Creo que, el hecho de haber cambiado tanto de trabajo me ha hecho conocer muchos campos distintos y ver, <br> en los años, como la electronica y la informatica han mejorado la vida y el trabajo de quien se ha puesto al día con la tecnología.
+                </p>
+            </div>
+            <div id="projects-body" hidden>
+                <p>
+                    Algunos proyectos:
+                    <a href="https://github.com/giacca90/TemplateMatic">TemplateMatic</a> y <a href="https://github.com/giacca90/TempleMaticDesktop">TemplateMaticDesktop</a>:
+                    dos aplicaciónes, una Web y una de Escritorio multiplataforma, para rellenar plantillas preparadas de una manera concreta.
+                    <br>
+                    <a href="https://github.com/giacca90/Sovereign-Gpt">Sovereign-Gpt</a>:
+                    Una aplicación de escritorio multiplataforma que instala un chatbot por medio de Docker y Ollama y permite entrenarlo. **Proyecto abandonado temporalmente por falta de recursos**
+                    <br>
+                    Más en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a>
+                </p>
+            </div>
+            <div id="contact-body" hidden>
+                <p>
+                    Contactame por correo electronico: <a href="mailto:giacca90mobile@protonmail.com">giacca90mobile@protonmail.com</a> <br>
+                    De momento me dedico a estudiar más cosas (Back-End principalmente), <br>
+                    pero si necesitas algúna app sencilla, o una pagina web dinamica contactame y hablaremos.
+                </p>
+            </div>
+        </div>
         <br>
         <h3>Para saber más sobre mis conocimientos, visita mi <a href="https://github.com/giacca90" target="_blank">Repositorio de GitHub!!</a></h3>
     </div>
     </div>
     <div class="container">
-        <div class="cebecera"><h3>Quales son mis habilidades??</h3></div>
+        <div><h3>Quales son mis habilidades??</h3></div>
         <div>
             <a href="javascript:void(0);" onclick="busca('')">Todos!!</a>
             <a href="javascript:void(0);" onclick="busca('Java')">Java</a>
