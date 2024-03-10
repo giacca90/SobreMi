@@ -12,6 +12,7 @@
     background-color: var(--color-fondo-claro);
     color: var(--color-texto-claro);
     transition: background-color 0.3s, color 0.3s;
+    padding: 10px;
   }
   
   body.modo-oscuro {
@@ -94,6 +95,9 @@ body.modo-oscuro .cabecera h3:hover{
 .cuerpo {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: inherit;
 }
 
 .hidden {

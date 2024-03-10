@@ -16,7 +16,8 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 /* document.addEventListener('DOMContentLoaded', () => {
     
 });
- */
+*/
+
 obtenerCertificados().then(() => {
     listaArchivos.forEach((val:pdfObj) => {
         console.log(val.name);
@@ -35,9 +36,11 @@ function busca(valor:string) {
     if(valor.length === 0) {
         result = listaArchivos
     }else{
+        if(valor.toLowerCase() === ('java'))
+            valor = 'java ';
         result = listaArchivos.filter((val:pdfObj) => val.name.toLowerCase().includes(valor.toLowerCase()))
     }
-    if(result) {
+    if(result && result.length >0) {
         result.forEach((val:pdfObj) => {
             const embedElement = document.createElement('img');
             embedElement.src = val.download_url;
@@ -51,6 +54,10 @@ function busca(valor:string) {
             embedElement.addEventListener('mouseleave', handleMouseLeave);
             resultado.appendChild(embedElement);
         })
+    }else if(result.length === 0) {
+        const element:HTMLElement = document.createElement('p');
+        element.innerHTML = 'No se ha encontrado la habilidad '+valor+' (de momento...)';
+        resultado.appendChild(element);
     }
 }
 
@@ -64,6 +71,7 @@ function CambiaEstilo() {
         cambiaEstilo.textContent = 'Modo Claro';
     }
 }
+
 function handleMouseEnter(event:any) {
     const element = event.target;
     element.style.transition = 'transform 0.5s';

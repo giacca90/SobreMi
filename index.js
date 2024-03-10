@@ -46,7 +46,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 /* document.addEventListener('DOMContentLoaded', () => {
     
 });
- */
+*/
 obtenerCertificados().then(function () {
     listaArchivos.forEach(function (val) {
         console.log(val.name);
@@ -76,9 +76,11 @@ function busca(valor) {
         result = listaArchivos;
     }
     else {
+        if (valor.toLowerCase() === ('java'))
+            valor = 'java ';
         result = listaArchivos.filter(function (val) { return val.name.toLowerCase().includes(valor.toLowerCase()); });
     }
-    if (result) {
+    if (result && result.length > 0) {
         result.forEach(function (val) {
             var embedElement = document.createElement('img');
             embedElement.src = val.download_url;
@@ -92,6 +94,11 @@ function busca(valor) {
             embedElement.addEventListener('mouseleave', handleMouseLeave);
             resultado.appendChild(embedElement);
         });
+    }
+    else if (result.length === 0) {
+        var element = document.createElement('p');
+        element.innerHTML = 'No se ha encontrado la habilidad ' + valor + ' (de momento...)';
+        resultado.appendChild(element);
     }
 }
 function CambiaEstilo() {
