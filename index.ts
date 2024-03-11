@@ -86,22 +86,14 @@ function handleMouseLeave(event:any) {
 
 function cambiaCuerpo(id:string) {
     console.log('id: '+id);
-    document.querySelectorAll('.cabecera h3').forEach((item) => {
-        if(item.id === id) {
-            item.classList.add('selected');
-        }else{
-            item.classList.remove('selected');
-        }
+    document.querySelectorAll('.cabecera h3').forEach((item) => {        
+        item.id === id ? item.classList.add('selected') : item.classList.remove('selected');
     });
 
     (document.getElementById('cuerpo') as HTMLElement).classList.add('hidden');
     setTimeout(() => {
         document.querySelectorAll<HTMLElement>('.cuerpo div').forEach((item:HTMLElement) => {
-            if(item.id === id+'-body') {
-                item.hidden = false;
-            }else{
-                item.hidden = true;
-            }
+            item.id === id+'-body' ? item.hidden = false : item.hidden = true;
         });    
         (document.getElementById('cuerpo') as HTMLElement).classList.remove('hidden');
     }, 500);    

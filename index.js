@@ -125,22 +125,12 @@ function handleMouseLeave(event) {
 function cambiaCuerpo(id) {
     console.log('id: ' + id);
     document.querySelectorAll('.cabecera h3').forEach(function (item) {
-        if (item.id === id) {
-            item.classList.add('selected');
-        }
-        else {
-            item.classList.remove('selected');
-        }
+        item.id === id ? item.classList.add('selected') : item.classList.remove('selected');
     });
     document.getElementById('cuerpo').classList.add('hidden');
     setTimeout(function () {
         document.querySelectorAll('.cuerpo div').forEach(function (item) {
-            if (item.id === id + '-body') {
-                item.hidden = false;
-            }
-            else {
-                item.hidden = true;
-            }
+            item.id === id + '-body' ? item.hidden = false : item.hidden = true;
         });
         document.getElementById('cuerpo').classList.remove('hidden');
     }, 500);
