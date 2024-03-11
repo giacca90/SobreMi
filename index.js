@@ -35,7 +35,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var resultado = document.getElementById("resultado");
+/* eslint-disable @typescript-eslint/no-unused-vars */
+var resultado = document.getElementById('resultado');
 var listaArchivos;
 var cambiaEstilo = document.getElementById('estilo');
 var car = true;
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 500);
     }
     function busca(valor) {
-        resultado.innerHTML = "";
+        resultado.innerHTML = '';
         var result = null;
         if (valor.length === 0) {
             result = listaArchivos;
@@ -130,7 +131,7 @@ function obtenerCertificados() {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch("https://api.github.com/repos/giacca90/SobreMi/contents/certificados")];
+                case 0: return [4 /*yield*/, fetch('https://api.github.com/repos/giacca90/SobreMi/contents/certificados')];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
