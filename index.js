@@ -43,15 +43,87 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     document.body.classList.add('modo-oscuro');
     cambiaEstilo.textContent = 'Modo Claro';
 }
-/* document.addEventListener('DOMContentLoaded', () => {
-    
-});
-*/
-obtenerCertificados().then(function () {
-    listaArchivos.forEach(function (val) {
-        console.log(val.name);
+document.addEventListener('DOMContentLoaded', function () {
+    obtenerCertificados().then(function () {
+        listaArchivos.forEach(function (val) {
+            console.log(val.name);
+        });
+        busca('');
     });
-    busca('');
+    carousel();
+    function handleMouseEnter(event) {
+        var element = event.target;
+        element.style.transition = 'transform 0.5s';
+        element.style.transform = 'scale(0.9)';
+    }
+    function handleMouseLeave(event) {
+        var element = event.target;
+        element.style.transition = 'transform 0.5s';
+        element.style.transform = 'scale(1)';
+    }
+    function cambiaCuerpo(id) {
+        console.log('id: ' + id);
+        document.querySelectorAll('.cabecera h3').forEach(function (item) {
+            item.id === id ? item.classList.add('selected') : item.classList.remove('selected');
+        });
+        document.getElementById('cuerpo').classList.add('hidden');
+        setTimeout(function () {
+            document.querySelectorAll('.cuerpo div').forEach(function (item) {
+                item.id === id + '-body' ? item.hidden = false : item.hidden = true;
+            });
+            document.getElementById('cuerpo').classList.remove('hidden');
+        }, 500);
+    }
+    function busca(valor) {
+        resultado.innerHTML = "";
+        var result = null;
+        if (valor.length === 0) {
+            result = listaArchivos;
+        }
+        else {
+            if (valor.toLowerCase() === ('java'))
+                valor = 'java ';
+            result = listaArchivos.filter(function (val) { return val.name.toLowerCase().includes(valor.toLowerCase()); });
+        }
+        if (result && result.length > 0) {
+            result.forEach(function (val) {
+                var embedElement = document.createElement('img');
+                embedElement.src = val.download_url;
+                embedElement.width = 390;
+                embedElement.height = 230;
+                embedElement.style.margin = '2px';
+                embedElement.addEventListener('click', function () {
+                    window.open(val.download_url, '_blank');
+                });
+                embedElement.addEventListener('mouseenter', handleMouseEnter);
+                embedElement.addEventListener('mouseleave', handleMouseLeave);
+                resultado.appendChild(embedElement);
+            });
+        }
+        else if (result.length === 0) {
+            var element = document.createElement('p');
+            element.innerHTML = 'No se ha encontrado la habilidad ' + valor + ' (de momento...)';
+            resultado.appendChild(element);
+        }
+    }
+    function carousel() {
+        return __awaiter(this, void 0, void 0, function () {
+            var cuerpos, id;
+            return __generator(this, function (_a) {
+                cuerpos = document.querySelectorAll('.cuerpo div');
+                id = 1;
+                setInterval(function () {
+                    if (!car)
+                        return;
+                    if (id === cuerpos.length)
+                        id = 0;
+                    cambiaCuerpo(cuerpos[id].id.substring(0, cuerpos[id].id.indexOf('-')));
+                    id++;
+                }, 5000);
+                return [2 /*return*/];
+            });
+        });
+    }
 });
 function obtenerCertificados() {
     return __awaiter(this, void 0, void 0, function () {
@@ -69,38 +141,6 @@ function obtenerCertificados() {
         });
     });
 }
-function busca(valor) {
-    resultado.innerHTML = "";
-    var result = null;
-    if (valor.length === 0) {
-        result = listaArchivos;
-    }
-    else {
-        if (valor.toLowerCase() === ('java'))
-            valor = 'java ';
-        result = listaArchivos.filter(function (val) { return val.name.toLowerCase().includes(valor.toLowerCase()); });
-    }
-    if (result && result.length > 0) {
-        result.forEach(function (val) {
-            var embedElement = document.createElement('img');
-            embedElement.src = val.download_url;
-            embedElement.width = 390;
-            embedElement.height = 230;
-            embedElement.style.margin = '2px';
-            embedElement.addEventListener('click', function () {
-                window.open(val.download_url, '_blank');
-            });
-            embedElement.addEventListener('mouseenter', handleMouseEnter);
-            embedElement.addEventListener('mouseleave', handleMouseLeave);
-            resultado.appendChild(embedElement);
-        });
-    }
-    else if (result.length === 0) {
-        var element = document.createElement('p');
-        element.innerHTML = 'No se ha encontrado la habilidad ' + valor + ' (de momento...)';
-        resultado.appendChild(element);
-    }
-}
 function CambiaEstilo() {
     console.log('Estilo actual: ' + document.body.classList);
     if (document.body.classList.toString() === 'modo-oscuro') {
@@ -112,48 +152,6 @@ function CambiaEstilo() {
         cambiaEstilo.textContent = 'Modo Claro';
     }
 }
-function handleMouseEnter(event) {
-    var element = event.target;
-    element.style.transition = 'transform 0.5s';
-    element.style.transform = 'scale(0.9)';
-}
-function handleMouseLeave(event) {
-    var element = event.target;
-    element.style.transition = 'transform 0.5s';
-    element.style.transform = 'scale(1)';
-}
-function cambiaCuerpo(id) {
-    console.log('id: ' + id);
-    document.querySelectorAll('.cabecera h3').forEach(function (item) {
-        item.id === id ? item.classList.add('selected') : item.classList.remove('selected');
-    });
-    document.getElementById('cuerpo').classList.add('hidden');
-    setTimeout(function () {
-        document.querySelectorAll('.cuerpo div').forEach(function (item) {
-            item.id === id + '-body' ? item.hidden = false : item.hidden = true;
-        });
-        document.getElementById('cuerpo').classList.remove('hidden');
-    }, 500);
-}
-function carousel() {
-    return __awaiter(this, void 0, void 0, function () {
-        var cuerpos, id;
-        return __generator(this, function (_a) {
-            cuerpos = document.querySelectorAll('.cuerpo div');
-            id = 1;
-            setInterval(function () {
-                if (!car)
-                    return;
-                if (id === cuerpos.length)
-                    id = 0;
-                cambiaCuerpo(cuerpos[id].id.substring(0, cuerpos[id].id.indexOf('-')));
-                id++;
-            }, 5000);
-            return [2 /*return*/];
-        });
-    });
-}
-carousel();
 function stop() {
     car = false;
 }
