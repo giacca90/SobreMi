@@ -45,6 +45,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     cambiaEstilo.textContent = 'Modo Claro';
 }
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('fecha').textContent = new Date().getFullYear().toString();
     obtenerCertificados().then(function () {
         listaArchivos.forEach(function (val) {
             console.log(val.name);
@@ -52,61 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         busca('');
     });
     carousel();
-    function handleMouseEnter(event) {
-        var element = event.target;
-        element.style.transition = 'transform 0.5s';
-        element.style.transform = 'scale(0.9)';
-    }
-    function handleMouseLeave(event) {
-        var element = event.target;
-        element.style.transition = 'transform 0.5s';
-        element.style.transform = 'scale(1)';
-    }
-    function cambiaCuerpo(id) {
-        console.log('id: ' + id);
-        document.querySelectorAll('.cabecera h3').forEach(function (item) {
-            item.id === id ? item.classList.add('selected') : item.classList.remove('selected');
-        });
-        document.getElementById('cuerpo').classList.add('hidden');
-        setTimeout(function () {
-            document.querySelectorAll('.cuerpo div').forEach(function (item) {
-                item.id === id + '-body' ? item.hidden = false : item.hidden = true;
-            });
-            document.getElementById('cuerpo').classList.remove('hidden');
-        }, 500);
-    }
-    function busca(valor) {
-        resultado.innerHTML = '';
-        var result = null;
-        if (valor.length === 0) {
-            result = listaArchivos;
-        }
-        else {
-            if (valor.toLowerCase() === ('java'))
-                valor = 'java ';
-            result = listaArchivos.filter(function (val) { return val.name.toLowerCase().includes(valor.toLowerCase()); });
-        }
-        if (result && result.length > 0) {
-            result.forEach(function (val) {
-                var embedElement = document.createElement('img');
-                embedElement.src = val.download_url;
-                embedElement.width = 390;
-                embedElement.height = 230;
-                embedElement.style.margin = '2px';
-                embedElement.addEventListener('click', function () {
-                    window.open(val.download_url, '_blank');
-                });
-                embedElement.addEventListener('mouseenter', handleMouseEnter);
-                embedElement.addEventListener('mouseleave', handleMouseLeave);
-                resultado.appendChild(embedElement);
-            });
-        }
-        else if (result.length === 0) {
-            var element = document.createElement('p');
-            element.innerHTML = 'No se ha encontrado la habilidad ' + valor + ' (de momento...)';
-            resultado.appendChild(element);
-        }
-    }
     function carousel() {
         return __awaiter(this, void 0, void 0, function () {
             var cuerpos, id;
@@ -126,6 +72,61 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+function busca(valor) {
+    resultado.innerHTML = '';
+    var result = null;
+    if (valor.length === 0) {
+        result = listaArchivos;
+    }
+    else {
+        if (valor.toLowerCase() === ('java'))
+            valor = 'java ';
+        result = listaArchivos.filter(function (val) { return val.name.toLowerCase().includes(valor.toLowerCase()); });
+    }
+    if (result && result.length > 0) {
+        result.forEach(function (val) {
+            var embedElement = document.createElement('img');
+            embedElement.src = val.download_url;
+            embedElement.width = 390;
+            embedElement.height = 230;
+            embedElement.style.margin = '2px';
+            embedElement.addEventListener('click', function () {
+                window.open(val.download_url, '_blank');
+            });
+            embedElement.addEventListener('mouseenter', handleMouseEnter);
+            embedElement.addEventListener('mouseleave', handleMouseLeave);
+            resultado.appendChild(embedElement);
+        });
+    }
+    else if (result.length === 0) {
+        var element = document.createElement('p');
+        element.innerHTML = 'No se ha encontrado la habilidad ' + valor + ' (de momento...)';
+        resultado.appendChild(element);
+    }
+}
+function handleMouseEnter(event) {
+    var element = event.target;
+    element.style.transition = 'transform 0.5s';
+    element.style.transform = 'scale(0.9)';
+}
+function handleMouseLeave(event) {
+    var element = event.target;
+    element.style.transition = 'transform 0.5s';
+    element.style.transform = 'scale(1)';
+}
+function cambiaCuerpo(id) {
+    console.log('id: ' + id);
+    document.querySelectorAll('.cabecera h3').forEach(function (item) {
+        item.id === id ? item.classList.add('selected') : item.classList.remove('selected');
+    });
+    document.getElementById('cuerpo').classList.add('hidden');
+    setTimeout(function () {
+        document.querySelectorAll('.cuerpo div').forEach(function (item) {
+            item.id === id + '-body' ? item.hidden = false : item.hidden = true;
+        });
+        document.getElementById('cuerpo').classList.remove('hidden');
+    }, 500);
+}
 function obtenerCertificados() {
     return __awaiter(this, void 0, void 0, function () {
         var response;
