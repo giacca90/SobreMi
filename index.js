@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         listaArchivos.forEach(function (val) {
             console.log(val.name);
         });
+        document.getElementById('todos').innerHTML += (' (' + listaArchivos.length + ')');
         busca('');
     });
     carousel();

@@ -16,11 +16,12 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 document.addEventListener('DOMContentLoaded', () => {
 	(document.getElementById('fecha') as HTMLSpanElement).textContent = new Date().getFullYear().toString();
-	
+
 	obtenerCertificados().then(() => {
 		listaArchivos.forEach((val:pdfObj) => {
 			console.log(val.name);
 		});
+		(document.getElementById('todos') as HTMLAnchorElement).innerHTML += (' ('+listaArchivos.length+')');
 		busca('');
 	}); 
 
