@@ -21,10 +21,10 @@
 
   @keyframes animarFondo {
     0% {
-      background-position: 0% 100%; /* Comienza desde arriba */
+      background-position: 0px 0px; /* Comienza desde arriba */
     }
     100% {
-      background-position: 0% 0%; /* Termina abajo */
+      background-position: 0px 1000px; /* Termina abajo */
     }
   }
   
