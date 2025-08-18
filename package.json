@@ -1,17 +1,18 @@
 {
-  "name": "landingpage",
-  "version": "1.0.0",
-  "description": "Mi landing page",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Giacca90",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^20.11.25",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "eslint": "^8.57.0"
-  }
+	"name": "landingpage",
+	"version": "1.0.0",
+	"description": "Mi landing page",
+	"main": "index.js",
+	"scripts": {
+		"ts-compile": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Giacca90",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^20.11.25",
+		"@typescript-eslint/eslint-plugin": "^7.2.0",
+		"@typescript-eslint/parser": "^7.2.0",
+		"eslint": "^8.57.0"
+	}
 }

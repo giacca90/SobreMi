@@ -47,10 +47,10 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('fecha').textContent = new Date().getFullYear().toString();
     obtenerCertificados().then(function () {
-        listaArchivos.forEach(function (val) {
+        /* listaArchivos.forEach((val:pdfObj) => {
             console.log(val.name);
-        });
-        document.getElementById('todos').innerHTML += (' (' + listaArchivos.length + ')');
+        }); */
+        document.getElementById('todos').innerHTML += ' (' + listaArchivos.length + ')';
         busca('');
     });
     carousel();
@@ -80,7 +80,7 @@ function busca(valor) {
         result = listaArchivos;
     }
     else {
-        if (valor.toLowerCase() === ('java'))
+        if (valor.toLowerCase() === 'java')
             valor = 'java ';
         result = listaArchivos.filter(function (val) { return val.name.toLowerCase().includes(valor.toLowerCase()); });
     }
@@ -123,7 +123,7 @@ function cambiaCuerpo(id) {
     document.getElementById('cuerpo').classList.add('hidden');
     setTimeout(function () {
         document.querySelectorAll('.cuerpo div').forEach(function (item) {
-            item.id === id + '-body' ? item.hidden = false : item.hidden = true;
+            item.id === id + '-body' ? (item.hidden = false) : (item.hidden = true);
         });
         document.getElementById('cuerpo').classList.remove('hidden');
     }, 500);
