@@ -1,111 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mi</title>
-  <script>
-  // Aplicar modo oscuro lo antes posible
-  (function() {
-    const darkModeOn = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (darkModeOn) {
-      // Agregar la clase al body inmediatamente
-      document.body.classList.add('modo-oscuro');
-    }
-  })();
- </script>
-	<link rel="icon" href="./mascara.ico" type="image/x-icon">
-	<link rel="stylesheet" href="index.css">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sobre Mi</title>
+		<script>
+			// Aplicar modo oscuro lo antes posible
+			(function () {
+				const darkModeOn = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+				if (darkModeOn) {
+					// Agregar la clase al body inmediatamente
+					document.body.classList.add('modo-oscuro');
+				}
+			})();
+		</script>
+		<link rel="icon" href="./mascara.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<header>
+			<h1 class="titulo">La pagina web donde puedes descubrir mis habilidades</h1>
+			<!--  <h3 style="color: red;">ATENCIÓN, PAGINA EN CONSTRUCCIÓN!!! </h3> -->
+		</header>
+		<div class="container">
+			<div class="cabecera">
+				<h3 id="about" onclick="cambiaCuerpo(this.id); stop()" class="selected">Quien soy</h3>
+				<h3 id="experience" onclick="cambiaCuerpo(this.id); stop()">Mís Experiencias</h3>
+				<h3 id="technologies" onclick="cambiaCuerpo(this.id); stop()">Tecnologías</h3>
+				<h3 id="contact" onclick="cambiaCuerpo(this.id); stop()">Contácteme</h3>
+			</div>
+			<div class="cuerpo" id="cuerpo">
+				<div id="about-body">
+					<p>
+						Soy un Hombre apasionado desde pequeño por la electrónica y la informática. <br />
+						Siempre intenté acoplar mi pasión con los trabajos que he desarrollado lejos del sector. <br />
+						He hecho de todo, mozo de almacén, electricista industrial, pescadero, repartidor, jardinero... <br />
+						Por mi punto de vista, muchas experiencias distintas, que poco tienen que ver con la informática, pero igualmente experiencia. <br />
+						Pero siempre he estado buscando aprender cosas nuevas, mantenerme actualizado con las tecnologías emergentes, <br />
+						y en los últimos años, me he puesto a estudiar seriamente desarrollo web, con la intención de dedicarme a eso en un futuro muy proximo. <br />
+						Ahora, después de invertir mucho de mi tiempo libre en capacitarme en la programación y desarrollo de aplicaciones, <br />
+						me siento preparado para sumergirme en el mundo laboral del desarrollo de software, <br />
+						un sector en expansión, dinámico, con mucho futuro, y no menos importante, que me apasiona. <br />
+					</p>
+				</div>
+				<div id="experience-body" hidden>
+					<p>
+						Mis experiencias en el sector del desarrollo?? La que se puede ver en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a><br />
+						No es solo cuatro cursos en linea, son tres años de estudio mezclado con desarrollo de pequeñas apps,<br />
+						y de un macro-proyecto (macro, por ser desarrollado por solo un desarrollador sin experience profesional) <br />
+						como demostración, sobretodo a mi mismo, de que puedo desarrollar aplicaciónes utíles,complejas y funcionales. Solo he hecho algunos pocos proyectos, quitando los que hice siguiendo a los cursos de <a href="https://www.coursera.org/" target="_blank">Coursera</a> y <a href="https://www.udemy.com/" target="_blank">Udemy</a>.<br />
+						Todos los puedes ver en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a><br />
+						Así que, como no tengo Experiencia profesional en el mundo del desarrollo, te hablaré sobre mis experiencias generales: <br />
+						Trabaje de encargado de Almacén, de Electricista en Maquinarias Industriales Textiles, <br />
+						como repartidor de leña con camión ligero, dependiente de tienda, barista, repartidor a domicilio... <br />
+						Creo que, el hecho de haber cambiado tanto de trabajo me ha hecho conocer muchos campos distintos y ver, <br />
+						en los años, como la electronica y la informática han mejorado la vida y el trabajo de quien se ha puesto al día con la tecnología.
+					</p>
+				</div>
+				<div id="technologies-body" hidden>
+					<p>
+						He intentado hacer una formación que me permitiese desarrollar aplicaciones completas, sin limitarme a una parte del proceso. <br />
+						Empecé con Java (en verdad, ya había programado en el instituto, allí programé con Pascal y con C), un lenguaje historico, <br />
+						conocido por versatilidad, luego pasé a JavaScript y TypeScript, los más utilizados en el mundo. <br />
+						Entonces pase a HTML, CSS y BootStrap, y finalmente Angular, que no es el más demandado del mercado, <br />
+						pero es lo que más rápido evoluciona, y tiene bastante mercado y menos saturado que otras tecnologías front. <br />
+						Acabado con el front, pasé al back, volviendo a Java, y a su framework por antonomasia, SpringBoot, y poco a poco con el resto del ecosistema de Spring <br />
+						Claramente, faltaban las bases de datos, y para no tener que decidir si relacionales o no, estudié las dos, PostreSQL y MongoDB. <br />
+						Eso, lo apliqué todo en una sola aplicación, junto con WebSocket, WebRTC, JWT, OAuth, FFMpeg, TailWind, Docker y mucho más. <br />
+						En lugar de muchos proyectos pequeños, preferí hacer una gran aplicación, para demostrar todas estas habilidades, y esta es <a href="https://giacca90.ddns.net:5002">Sovereign School</a>
+					</p>
+				</div>
+				<div id="contact-body" hidden>
+					<p>
+						En este momento, estoy buscando activamente un trabajo en el sector del desarrollo, <br />
+						que me permita seguir aprendiendo y desarrollando mis habilidades, para crecer en este sector. <br />
+						Si tengo que darme un "rango", diría que soy un Junior con buenas bases y necesitado me más experiencia en el mundo real.<br />
+						No tengo preferencias, puedo trabajar presencial o híbrido si queda cerca de Barcelona, o en modo Teletrabajo. <br />
+						Probablemente, para hacer experiencia, el trabajo presencial es lo ideal,<br />
+						en cuanto a comodidad y tiempo, el teletrabajo me permitiría trabajar más horas y estudiar otras tecnologías. <br />
+						Si eres una Empresa, y quieres contarme, pouedes hacerlo al correo electrónico: <a href="mailto:giacca90mobile@protonmail.com">giacca90mobile@protonmail.com</a> <br />
+						De momento me dedico a estudiar más cosas, me quedan aún temas de sistemas, nube, CI/CD, Dev-Ops, más Spring <br />
+						y mantenerme actualizado en Angular, que con el ritmo que tiene, ya es bastante XD.
+					</p>
+				</div>
+			</div>
+			<br />
+			<h3>Para saber más sobre mis conocimientos, visita mi <a href="https://github.com/giacca90" target="_blank">Repositorio de GitHub!!</a></h3>
+		</div>
+		<div class="container">
+			<h3>Algunos de mis proyectos</h3>
+			<p>
+				<a href="https://github.com/giacca90/sovereing-school" target="_blank">Sovereign School</a>
+				La aplicación más grande, compleja y completa que he desarrollado hasta ahora. <br />
+				Es como la suma de todo lo que se hacer en el mundo del desarrollo web. <br />
+				En lugar de hacer pequeñas aplicaciones de mostrativas, he desarrollado una plataforma de cursos en linea <br />
+				con la posibilidad de emitir en directo, conectarse con OBS Studio o cualquiero transmisión RTMP <br />
+				con un chat por cada curso, separado por clases, con la posibilidad de hacer preguntas <br />
+				que quedan ligadas a un momento concreto de una clase. <br />
+				Está desarrollada con Angular 20 con Server Side Rendering y TailWindCSS en el front, <br />
+				Java, SpringBoot, JWT, PostgreSQL y MongoDB en el back. <br />
+				Genera y sirve videos HLS, utilizando FFMpeg para la conversión y Video.js para visualizarlos. <br />
+				Utiliza NGINX como proxy RTMP para OBS, pero en un futuro quiero sustituirlo por sockets Java. <br />
+				También viene integrada con <a href="https://github.com/giacca90/web-obs" target="_blank">Web-OBS</a>, otro proyecto que nació jundo con la plataforma, <br />
+				pero luego exporté a WebComponent, y está disponible para su uso. Esta app está publicada, y se puede probar <a href="https://giacca90.ddns.net:5002" target="_blank">Aquí</a>
+			</p>
+			<br />
+			<div></div>
+			<br />
+			<p>
+				<a href="https://github.com/giacca90/web-obs" target="_blank">Web-OBS</a>: Un componente Angular 20 exportado a WebComponent, que provee una interfaz similar al conocido Software OBS, permitiendo crear streamings de video de forma facil y en el navegador. <br />
+				Esta app está publicada, y se puede probar <a href="https://giacca90.github.io/web-obs/" target="_blank">Aquí</a> <br />
+				Está disponible en NPM, en las dos versiones, <a href="https://www.npmjs.com/package/web-obs" target="_blank">Angular 20</a> y <a href="https://www.npmjs.com/package/web-obs-wc" target="_blank">WebComponent</a>
+			</p>
+			<br />
+			<div style="display: flex; flex-wrap: wrap">
+				<div style="flex: 1 1 200px; max-width: 200px">
+					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_1.gif" alt="Posicionamiento de elementos" style="width: 90%; height: auto" />
+				</div>
+				<div style="flex: 1 1 200px; max-width: 200px">
+					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_2.gif" alt="Configuración de aspecto" style="width: 90%; height: auto" />
+				</div>
+				<div style="flex: 1 1 200px; max-width: 200px">
+					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_3.gif" alt="Sobreposición de elementos" style="width: 90%; height: auto" />
+				</div>
+				<div style="flex: 1 1 200px; max-width: 200px">
+					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_4.gif" alt="Pantalla compartida" style="width: 90%; height: auto" />
+				</div>
+				<div style="flex: 1 1 200px; max-width: 200px">
+					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_5.gif" alt="Crear un preset" style="width: 90%; height: auto" />
+				</div>
+				<div style="flex: 1 1 200px; max-width: 200px">
+					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_6.gif" alt="Atajos de teclado" style="width: 90%; height: auto" />
+				</div>
+			</div>
+			<br />
+			<br />
+			<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between">
+				<p style="width: 65%">
+					<a href="https://github.com/giacca90/BuscaJuzgado" target="_blank">BuscaJuzgado</a>, una app full-stack hecha con Angular 17 Standalone, SpringBoot 3.3.0 y PostgreSQL que permite hacer búsquedas avanzadas en una base de datos de todos los Juzgados de España, y obtenerlos en distintos formatos. <br />
+					El listado se ha creado haciendo "scrapping" desde la pagina oficial del ministerio, y la app que lo hizo está también en el repositorio. <br />
+					Es una sencilla app Java, preparada especificamente para la pagina del ministerio. <br />
+					Esta app está publicada, y se puede probar <a href="https://giacca90.github.io/BuscaJuzgado/" target="_blank">Aquí</a>
+				</p>
+				<div style="width: 30%">
+					<img src="https://raw.githubusercontent.com/giacca90/BuscaJuzgado/main/demo.gif" alt="Demostración" style="max-width: 100%" />
+				</div>
+			</div>
+			<br />
+			<div style="display: flex; flex-direction: row-reverse; flex-wrap: wrap; justify-content: space-between">
+				<p style="width: 65%">
+					<a href="https://github.com/giacca90/TemplateMatic" target="_blank">TemplateMatic</a> y <a href="https://github.com/giacca90/TemplateMaticDesktop" target="_blank">TemplateMaticDesktop</a>: dos aplicaciones, una Web y una de Escritorio multiplataforma, para rellenar plantillas preparadas de una manera concreta. <br />
+					Acepta archivos .docx y .odt, y también se le puede pasar un .csv con un listado de datos. <br />
+					Si el nombre de la columna del .csv coincide con el campo da sustituir, se puede rellenar de forma automática. <br />
+					La versión de escritorio genera también un historial de las plantillas ya rellenadas. <br />
+					La versión Web se puede probar
+					<a href="https://giacca90.github.io/TemplateMatic/" target="_blank">Aquí</a>
+				</p>
+				<div style="width: 30%">
+					<img src="https://raw.githubusercontent.com/giacca90/TemplateMaticDesktop/master/demo.gif" alt="Demostración" style="max-width: 100%" />
+				</div>
+			</div>
+			<br />
+			<p>Más en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a></p>
+		</div>
+		<div class="container">
+			<h3>Quale son mis habilidades??</h3>
+			<div>
+				<a href="javascript:void(0);" onclick="busca('')" id="todos">Todos!!</a>
+				<a href="javascript:void(0);" onclick="busca('Java')">Java</a>
+				<a href="javascript:void(0);" onclick="busca('JavaScript')">JavaScript</a>
+				<a href="javascript:void(0);" onclick="busca('HTML')">HTML</a>
+				<a href="javascript:void(0);" onclick="busca('CSS')">CSS</a>
+				<a href="javascript:void(0);" onclick="busca('BootStrap')">BootStrap</a>
+				<a href="javascript:void(0);" onclick="busca('Angular')">Angular</a>
+				<a href="javascript:void(0);" onclick="busca('NativeScript')">NativeScript</a>
+				<a href="javascript:void(0);" onclick="busca('SQL')">SQL</a>
+				<input type="text" placeholder="Busca aquí una habilidad!!!" oninput="busca(this.value)" />
+			</div>
+		</div>
+		<hr />
+		<div class="container">
+			<div class="resultado" id="resultado"></div>
+		</div>
+		<br />
+		<footer style="display: flex; justify-content: space-between; align-items: center">
+			<p style="color: rgb(100, 100, 100)">copyright© <span id="fecha">2025</span>. Todos los derechos reservados.</p>
+			<button id="estilo" onclick="CambiaEstilo()">Modo Oscuro</button>
+		</footer>
 
-</head>
-<body>
-    <header>
-        <h1 class="titulo">La pagina web donde puedes descubrir mis habilidades</h1>
-<!--         <h3 style="color: red;">ATENCIÓN, PAGINA EN CONSTRUCCIÓN!!! </h3> -->
-    </header>
-    <div class="container">
-        <div class="cabecera">
-            <h3 id="about" onclick="cambiaCuerpo(this.id); stop()" class="selected">Quien soy</h3>
-            <h3 id="experience" onclick="cambiaCuerpo(this.id); stop()">Mís Experiencias</h3>
-            <h3 id="projects" onclick="cambiaCuerpo(this.id); stop()">Algunos proyectos</h3>
-            <h3 id="contact" onclick="cambiaCuerpo(this.id); stop()">Contácteme</h3>
-        </div>
-        <div class="cuerpo" id="cuerpo">
-            <div id="about-body">
-                <p>
-                    Soy un Hombre apasionado desde pequeño por la electrónica y la informática. <br>
-                    Siempre intenté acoplar mi pasión con los trabajos que he desarrollado lejos del sector. <br>
-                    He hecho de todo, mozo de almacén, electricista industrial, pescadero, repartidor... <br>
-                    Por mi punto de vista, muchas experiencias distintas, que poco tienen que ver con la informática, pero igualmente experiencia. <br>
-                    Ahora, después de invertir mucho de mi tiempo libre en capacitarme en la programación y desarrollo de aplicaciones, <br> 
-					me siento (casi) preparado para sumergirme en el mundo laboral del desarrollo de software, en el metre sigo estudiando.
-                </p>
-            </div>
-            <div id="experience-body" hidden>
-                <p>
-                    Mis experiencias en el sector del desarrollo?? Ninguna! <br>
-                    Solo he hecho algunos pocos proyectos, quitando los que hice siguiendo a los cursos de <a href="https://www.coursera.org/" target="_blank">Coursera</a> y <a href="https://www.udemy.com/" target="_blank">Udemy</a>.<br>
-                    Todos los puedes ver en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a><br>
-                    Así que te hablaré sobre mis experiencias generales: <br>
-                    Trabaje de encargado de Almacén, de Electricista en Maquinarias Industriales Textiles, <br> como repartidor de leña con camión ligero, dependiente de tienda, barista, repartidor a domicilio... <br>
-                    Creo que, el hecho de haber cambiado tanto de trabajo me ha hecho conocer muchos campos distintos y ver, <br> en los años, como la electronica y la informática han mejorado la vida y el trabajo de quien se ha puesto al día con la tecnología.
-                </p>
-            </div>
-            <div id="projects-body" hidden>
-                <p>
-                    <a href="https://github.com/giacca90/TemplateMatic" target="_blank">TemplateMatic</a> y <a href="https://github.com/giacca90/TemplateMaticDesktop" target="_blank">TemplateMaticDesktop</a>:
-                    dos aplicaciones, una Web y una de Escritorio multiplataforma, para rellenar plantillas preparadas de una manera concreta. <br>
-										La versión Web se puede probar <a href="https://giacca90.github.io/TemplateMatic/" target="_blank">Aquí</a>
-                    <br> <br>
-										<a href="https://github.com/giacca90/BuscaJuzgado" target="_blank">BuscaJuzgado</a>
-										una app full-stack hecha con Angular 17 Standalone, SpringBoot 3.3.0 y PostgreSQL que permite hacer búsquedas avanzadas en una base de datos de todos los Juzgados de España. <br>
-										Esta app está publicada, y se puede probar <a href="https://giacca90.github.io/BuscaJuzgado/" target="_blank">Aquí</a>
-										<br> <br>
-                    <a href="https://github.com/giacca90/web-obs" target="_blank">Web-OBS</a>:
-                    Un componente Angular 20 exportado a WebComponent, que provee una interfaz similar al conocido Software OBS, permitiendo crear streamings de video de forma facil y en el navegador. <br>
-										Esta app está publicada, y se puede probar <a href="https://giacca90.github.io/web-obs/" target="_blank">Aquí</a> <br>
-										Está disponible en NPM, en las dos versiones, <a href="https://www.npmjs.com/package/web-obs" target="_blank">Angular 20</a> y <a href="https://www.npmjs.com/package/web-obs-wc" target="_blank">WebComponent</a>
-                    <br> <br>
-                    Más en mi <a href="https://github.com/giacca90" target="_blank">repositorio de GitHub.</a>
-                </p>
-            </div>
-            <div id="contact-body" hidden>
-                <p>
-                    Contácteme por correo electrónico: <a href="mailto:giacca90mobile@protonmail.com">giacca90mobile@protonmail.com</a> <br>
-                    De momento me dedico a estudiar más cosas (Back-End principalmente), <br>
-                    pero si necesitas alguna app sencilla, o una pagina web dinámica contacta conmigo y hablaremos.
-                </p>
-            </div>
-        </div>
-        <br>
-        <h3>Para saber más sobre mis conocimientos, visita mi <a href="https://github.com/giacca90" target="_blank">Repositorio de GitHub!!</a></h3>
-    </div>
-    </div>
-    <div class="container">
-        <div><h3>Quale son mis habilidades??</h3></div>
-        <div>
-            <a href="javascript:void(0);" onclick="busca('')" id="todos">Todos!!</a>
-            <a href="javascript:void(0);" onclick="busca('Java')">Java</a>
-            <a href="javascript:void(0);" onclick="busca('JavaScript')">JavaScript</a>
-            <a href="javascript:void(0);" onclick="busca('HTML')">HTML</a>
-            <a href="javascript:void(0);" onclick="busca('CSS')">CSS</a>
-            <a href="javascript:void(0);" onclick="busca('BootStrap')">BootStrap</a>
-            <a href="javascript:void(0);" onclick="busca('Angular')">Angular</a>
-            <a href="javascript:void(0);" onclick="busca('NativeScript')">NativeScript</a>
-            <a href="javascript:void(0);" onclick="busca('SQL')">SQL</a>
-            <input type="text" placeholder="Busca aquí una habilidad!!!" oninput="busca(this.value)">
-        </div>
-    </div>
-    <hr>
-    <div class="container">
-        <div class="resultado" id="resultado"></div>
-    </div>
-    <br>
-    <footer style="display: flex; justify-content: space-between; align-items: center;">
-        <p style="color: rgb(100, 100, 100);">copyright© <span id="fecha">2024</span>. Todos los derechos reservados.</p>
-        <button id="estilo" onclick="CambiaEstilo()">Modo Oscuro</button>
-    </footer>
-
-    <script src="index.js"></script>
-</body>
+		<script src="index.js"></script>
+	</body>
 </html>
+
+<!-- -->

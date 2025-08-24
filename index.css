@@ -50,6 +50,10 @@ body.modo-oscuro {
 	overflow-y: auto;
 }
 
+body.modo-oscuro .resultado {
+	scrollbar-color: #787878 #4e4e4e;
+}
+
 p {
 	font-size: 20px;
 }
