@@ -52,6 +52,7 @@ function busca(valor: string) {
 		result.forEach((val: pdfObj) => {
 			const embedElement = document.createElement('img');
 			embedElement.src = val.download_url;
+			embedElement.alt = val.name;
 			embedElement.width = 390;
 			embedElement.height = 230;
 			embedElement.style.margin = '2px';
