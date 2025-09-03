@@ -193,7 +193,7 @@
 		<script src="index.js"></script>
 		<script>
 			// Registro de visitas
-			fetch('https://giacca90.ddns.net:5010/log', {
+			fetch('http://giacca90.ddns.net:5010/log', {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({
@@ -201,7 +201,7 @@
 					url: window.location.href,
 					referrer: document.referrer,
 				}),
-			});
+			}).catch((err) => console.error('No se pudo registrar visita:', err));
 		</script>
 	</body>
 </html>
