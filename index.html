@@ -117,22 +117,22 @@
 			<br />
 			<div style="display: flex; flex-wrap: wrap">
 				<div style="flex: 1 1 200px; max-width: 200px">
-					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_1.gif" alt="Posicionamiento de elementos" style="width: 90%; height: auto" />
+					<img loading="lazy" src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_1.gif" alt="Posicionamiento de elementos" style="width: 90%; height: auto" />
 				</div>
 				<div style="flex: 1 1 200px; max-width: 200px">
-					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_2.gif" alt="Configuración de aspecto" style="width: 90%; height: auto" />
+					<img loading="lazy" src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_2.gif" alt="Configuración de aspecto" style="width: 90%; height: auto" />
 				</div>
 				<div style="flex: 1 1 200px; max-width: 200px">
-					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_3.gif" alt="Sobreposición de elementos" style="width: 90%; height: auto" />
+					<img loading="lazy" src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_3.gif" alt="Sobreposición de elementos" style="width: 90%; height: auto" />
 				</div>
 				<div style="flex: 1 1 200px; max-width: 200px">
-					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_4.gif" alt="Pantalla compartida" style="width: 90%; height: auto" />
+					<img loading="lazy" src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_4.gif" alt="Pantalla compartida" style="width: 90%; height: auto" />
 				</div>
 				<div style="flex: 1 1 200px; max-width: 200px">
-					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_5.gif" alt="Crear un preset" style="width: 90%; height: auto" />
+					<img loading="lazy" src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_5.gif" alt="Crear un preset" style="width: 90%; height: auto" />
 				</div>
 				<div style="flex: 1 1 200px; max-width: 200px">
-					<img src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_6.gif" alt="Atajos de teclado" style="width: 90%; height: auto" />
+					<img loading="lazy" src="https://github.com/giacca90/web-obs/raw/a2f3432efb0ca4ca8173fa11d3d9b13504565d46/docs/web-obs_6.gif" alt="Atajos de teclado" style="width: 90%; height: auto" />
 				</div>
 			</div>
 			<br />
@@ -145,7 +145,7 @@
 					Esta app está publicada, y se puede probar <a href="https://giacca90.github.io/BuscaJuzgado/" target="_blank">Aquí</a>
 				</p>
 				<div style="width: 30%">
-					<img src="https://raw.githubusercontent.com/giacca90/BuscaJuzgado/main/demo.gif" alt="Demostración" style="max-width: 100%" />
+					<img loading="lazy" src="https://raw.githubusercontent.com/giacca90/BuscaJuzgado/main/demo.gif" alt="Demostración" style="max-width: 100%" />
 				</div>
 			</div>
 			<br />
@@ -159,7 +159,7 @@
 					<a href="https://giacca90.github.io/TemplateMatic/" target="_blank">Aquí</a>
 				</p>
 				<div style="width: 30%">
-					<img src="https://raw.githubusercontent.com/giacca90/TemplateMaticDesktop/master/demo.gif" alt="Demostración" style="max-width: 100%" />
+					<img loading="lazy" src="https://raw.githubusercontent.com/giacca90/TemplateMaticDesktop/master/demo.gif" alt="Demostración" style="max-width: 100%" />
 				</div>
 			</div>
 			<br />
@@ -191,6 +191,18 @@
 		</footer>
 
 		<script src="index.js"></script>
+		<script>
+			// Registro de visitas
+			fetch('https://giacca90.ddns.net:5010/log', {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify({
+					project: 'MiLanding', // Identifica tu proyecto
+					url: window.location.href,
+					referrer: document.referrer,
+				}),
+			});
+		</script>
 	</body>
 </html>
 
